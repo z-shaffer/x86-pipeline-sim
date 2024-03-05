@@ -1,0 +1,55 @@
+.pos 0
+irmovq 1, %r8
+irmovq list, %rax
+mrmovq 0(%rax), %rcx
+nop
+nop
+nop
+irmovq 0xffffffffffffffff, %r9
+xorq %r9, %rcx
+addq %r8, %rcx
+cmovg %rcx, %rdx
+rmmovq %rdx, 0(%rax)
+mrmovq 8(%rax), %rcx
+nop
+nop
+nop
+irmovq 0xffffffffffffffff, %r9
+xorq %r9, %rcx
+addq %r8, %rcx
+cmovg %rcx, %rdx
+rmmovq %rdx, 8(%rax)
+mrmovq 16(%rax), %rcx
+nop
+nop
+nop
+irmovq 0xffffffffffffffff, %r9
+xorq %r9, %rcx
+addq %r8, %rcx
+cmovg %rcx, %rdx
+rmmovq %rdx, 16(%rax)
+mrmovq 24(%rax), %rcx
+nop
+nop
+nop
+irmovq 0xffffffffffffffff, %r9
+xorq %r9, %rcx
+addq %r8, %rcx
+cmovg %rcx, %rdx
+rmmovq %rdx, 24(%rax)
+mrmovq 32(%rax), %rcx
+nop
+nop
+nop
+irmovq 0xffffffffffffffff, %r9
+xorq %r9, %rcx
+addq %r8, %rcx
+cmovg %rcx, %rdx
+rmmovq %rdx, 32(%rax)
+halt
+      .align 8
+list: .quad -2            #at end: 2
+      .quad 5             #at end: 5 
+      .quad -15           #at end: f
+      .quad 0             #at end: 0
+      .quad -1            #at end: 1
